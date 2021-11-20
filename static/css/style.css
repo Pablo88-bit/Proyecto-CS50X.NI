@@ -1,0 +1,91 @@
+ /*Para inicializar todo el documento sin ningún margen y padding*/
+*{
+	margin:0px;
+	padding:0px;
+}
+
+body {
+	background: #EA1737;
+}
+
+h2{
+	display:inline-block;
+  	background-color:  #F9F611;
+	color: #EA1737;
+}
+/*Menu de navegación que esta en html base*/
+.nav-item a:hover{
+	background:#E3F5F9;
+	color:#EA1737;
+}
+
+
+/*Ruta Nosotros*/
+.articles{
+	display:inline-block;
+	padding: 20px 100px;
+	background-color: #fff;
+
+}
+.Nosotros{
+	display:inline-block;
+	padding: 0px 30px;
+	background-color: #fff;
+
+}
+
+.Cita{
+	display:inline-block;
+	padding: 10px 10px;
+	background-color: #F9F611;
+}
+
+
+
+
+/*Ruta Contacto*/
+footer{
+	display:inline-block;
+	padding: 50px 100px;
+	background-color: #F9F611;
+}
+/*
+title {
+	display:inline-block;
+  background-color: lightblue;
+	color: #fff;
+}
+
+body {
+	background: #EA1737;
+}
+
+
+/*Creación de un menu de navegación
+nav {
+	background-color: #175DEA;
+	color:#fff;
+	margin: 10px;
+	padding: 10px;
+}
+
+/*Convirtiendo en un bloque de linea a las opciones del menu
+.menu li{
+	display:inline-block;
+	padding: 10px 30px;
+	background-color: #F9F611;
+}
+
+.menu li a{
+	padding:20px 20px;
+	display:inline-block;
+	color:#000;
+	text-decoration: none;
+}
+
+/*El hover hace que cuando el mouse se pase sobre el enlace este cambie de color
+.menu li a:hover{
+	background:#B3C9F4;
+	color:#fff;
+}
+/*Final del menu de navegación*/

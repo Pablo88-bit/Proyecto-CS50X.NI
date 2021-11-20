@@ -1,0 +1,41 @@
+{% extends './base.html' %}
+
+
+{% block cuerpo %}
+
+    <section class="row justify-content-center m-4">
+        <article class="col-lg-6 col-12">
+
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header" style="text-align:center;">Movilízate</div>
+                <div class="card-body">
+                    <h4 class="card-title" style="text-align:center;">Registrarse</h4>
+
+                    <form action="/register" method="post">
+                        <fieldset>
+                            <div class="form-group p-2">
+                                <label for="exampleInputUsername" class="form-label mt-4">Usuario</label>
+                                <input type="text" class="form-control" name="username" placeholder="Username">
+                            </div>
+
+                            <div class="form-group p-2">
+                                <label for="exampleInputPassword1" class="form-label mt-4">Contraseña</label>
+                                <input type="password" class="form-control" name="password" placeholder="Password">
+                            </div>
+
+                            <div class="form-group p-2">
+                                <label for="exampleInputPassword2" class="form-label mt-4">Confirmar Contraseña</label>
+                                <input type="password" class="form-control" name="confirmation" placeholder="Password (again)">
+                            </div>
+
+                            <button class="btn btn-secondary p-2" type="submit">Register</button>
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+
+        </article>
+    </section>
+
+{% endblock %}

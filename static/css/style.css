@@ -14,14 +14,28 @@ h2{
 	color: #EA1737;
 }
 /*Menu de navegación que esta en html base*/
-.nav-item a:hover{
-	background:#E3F5F9;
-	color:#EA1737;
+.nav-link{
+	font-size: 111%;
+	color: #0C0307;
+}
+.nav-link:hover{
+	background: #6FEFB8;/*#36D08D;*/
+	color:#F1E839;
+	/*color:#EA1737;*/
+	font-size: 115%;
+}
+
+/*Mensajes al usuario*/
+.alert{
+	color: yellow;
+  	background-color: indigo;
 }
 
 
 /*Ruta Nosotros*/
 .articles{
+	color: #0C0307;
+	font-size: 120%;
 	display:inline-block;
 	padding: 20px 100px;
 	background-color: #fff;
@@ -30,14 +44,27 @@ h2{
 .Nosotros{
 	display:inline-block;
 	padding: 0px 30px;
-	background-color: #fff;
+	background-color: #12C9F1;
 
+}
+
+/*.subtitulo{
+	display:inline-block;
+	padding: 0px 30px;
+	background-color: #6AF9E7;
+}*/
+.hola{
+	display:inline-block;
+	padding: 0px 30px;
+	background: #6AF9E7;/*#DAF7A6;
+	background-color: #2ECC71;*/
 }
 
 .Cita{
 	display:inline-block;
 	padding: 10px 10px;
-	background-color: #F9F611;
+	background-color: #EFF96A;
+	/*#F9F611;*/
 }
 
 
@@ -45,6 +72,7 @@ h2{
 
 /*Ruta Contacto*/
 footer{
+	font-size: 120%;
 	display:inline-block;
 	padding: 50px 100px;
 	background-color: #F9F611;

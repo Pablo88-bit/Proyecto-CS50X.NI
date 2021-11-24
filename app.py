@@ -89,11 +89,40 @@ def register():
         return render_template("register.html")
 
 
-
 #Ruta Login#
-@app.route('/Login')
+@app.route('/Login', methods=["GET", "POST"])
 def Login():
-    return render_template("Login.html")
+
+    if request.method == "POST":
+
+        #Asegurar envio username#
+        if not request.form.get("username"):
+            flash("Ingrese un usuario")
+            return render_template("Login.html")
+
+        #Asegurar envio del password#
+        elif not request.form.get("password"):
+            flash("Ingrese una contraseña")
+            return render_template("Login.html")
+
+        user = request.form.get("username")
+        contra = request.form.get("password")
+
+        #Consultar la base de datos#
+        rows = db.execute("SELECT * FROM user WHERE username = :username", username = user)
+
+        #Validar usuario y contraseña#
+        if len(rows) != 1 or not check_password_hash(rows[0]["password"], contra):
+            flash("Usuario o contraseña incorrecta")
+            return render_template("Login.html")
+
+        #Recordar al usuario ingresado o guardar el usuario en la session#
+        session["user_id"] = rows[0]["user_id"]
+
+        #Al inicio#
+        return redirect("/")
+    else:
+        return render_template("Login.html")
 
 
 #Si esta en el archivo principal vamos a ejecutar nuestra app

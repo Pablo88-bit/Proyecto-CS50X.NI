@@ -35,29 +35,43 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link active" href="/home">Inicio
-                              <span class="visually-hidden">(current)</span>
+                            <span class="visually-hidden">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/Nosotros">Nosotros</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/Contacto">Contacto</a>
+                        </li>
+                    </ul>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
                             <a class="nav-link" href="/register">Registrarse</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/Login">Iniciar Sesión</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Contacto">Contacto</a>
-                        </li>
                     </ul>
-                </div>
-                <div class= "cabecera">
-                  <h1>¡Saludos!, Bienvenido a Movilízate</h1>
                 </div>
             </div>
         </nav>
+
+
+
+        <!--Sirve para mostrar los mensajes al usuario-->
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert my-4" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+
+
 	    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-        {% block cuerpo %}{% endblock %}
+        <main class="container my-5">
+            {% block cuerpo %}{% endblock %}
+        </main>
     </body>
 </html>

@@ -34,6 +34,11 @@ Session(app)
 def index():
     return render_template("index.html")
 
+
+@app.route('/salir')
+def salir():
+    return render_template("index.html")
+
 #Ruta Info#
 @app.route('/Info')
 def Info():

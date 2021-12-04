@@ -4,26 +4,41 @@
 	padding:0px;
 }
 
-body {
-	background: #EA1737;
+body{
+	background:black;
 }
-
 h2{
 	display:inline-block;
   	background-color:  #F9F611;
 	color: #EA1737;
 }
+
+
 /*Menu de navegación que esta en html base*/
-.nav-link{
+.navegacion{
+	color:YELLOW;
+	background: rgba(0, 0, 0, .4);
+	background:#929595;
+}
+
+.container-fluid{
 	font-size: 111%;
-	color: #0C0307;
+	color:yellow;
+	/*color: #0C0307;*/
+}
+.nav-link,
+.navbar-brand{
+	color:yellow;
+	margin:10px;
 }
 .nav-link:hover{
-	background: #6FEFB8;/*#36D08D;*/
+
 	color:#F1E839;
 	/*color:#EA1737;*/
-	font-size: 115%;
+	font-size: 117%;
 }
+
+
 
 /*Mensajes al usuario*/
 .alert{
@@ -32,42 +47,36 @@ h2{
 }
 
 
+/*Ruta Index*/
+.card{
+	color:WHITE;
+	width:100%;
+	height:100%;
+	margin-bottom: 5px;
+	background: rgba(0, 0, 0, .4);
+	background:#929595;
+}
+
+.card-title{
+	display: inline-block;
+	color:yellow;
+}
+
+.link-primary{
+	color:blue;
+	display: block;
+}
+
+
+
 /*Ruta Nosotros*/
-.articles{
-	color: #0C0307;
-	font-size: 120%;
-	display:inline-block;
-	padding: 20px 100px;
-	background-color: #fff;
-
+.card2{
+	color:WHITE;
+	width:100%;
+	height:100%;
+	margin-bottom: 5px;
+	background: rgba(0, 0, 0, .4);
 }
-.Nosotros{
-	display:inline-block;
-	padding: 0px 30px;
-	background-color: #12C9F1;
-
-}
-
-/*.subtitulo{
-	display:inline-block;
-	padding: 0px 30px;
-	background-color: #6AF9E7;
-}*/
-.hola{
-	display:inline-block;
-	padding: 0px 30px;
-	background: #6AF9E7;/*#DAF7A6;
-	background-color: #2ECC71;*/
-}
-
-.Cita{
-	display:inline-block;
-	padding: 10px 10px;
-	background-color: #EFF96A;
-	/*#F9F611;*/
-}
-
-
 
 
 /*Ruta Contacto*/
@@ -77,43 +86,4 @@ footer{
 	padding: 50px 100px;
 	background-color: #F9F611;
 }
-/*
-title {
-	display:inline-block;
-  background-color: lightblue;
-	color: #fff;
-}
 
-body {
-	background: #EA1737;
-}
-
-
-/*Creación de un menu de navegación
-nav {
-	background-color: #175DEA;
-	color:#fff;
-	margin: 10px;
-	padding: 10px;
-}
-
-/*Convirtiendo en un bloque de linea a las opciones del menu
-.menu li{
-	display:inline-block;
-	padding: 10px 30px;
-	background-color: #F9F611;
-}
-
-.menu li a{
-	padding:20px 20px;
-	display:inline-block;
-	color:#000;
-	text-decoration: none;
-}
-
-/*El hover hace que cuando el mouse se pase sobre el enlace este cambie de color
-.menu li a:hover{
-	background:#B3C9F4;
-	color:#fff;
-}
-/*Final del menu de navegación*/

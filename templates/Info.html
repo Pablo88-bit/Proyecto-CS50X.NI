@@ -1,0 +1,98 @@
+{% extends './base.html' %}
+
+
+{% block cuerpo %}
+<section class="container mx-auto mt-5">
+    <form>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+		  <div class="col">
+		    <div class="card2">
+		      <div class="card-body">
+		        <h5 class="card-title">WEBP</h5>
+		        <p class="card-text">
+		        	Para empezar, este formato nace el 30 de septiembre de 2010 de la mano de Google .
+		        	La razón por la que surge tiene que ver con la compresión de las imágenes: el formato
+		        	webP permite mostrar la misma calidad que JPEG sin pérdidas de gráficos en 24 bits.
+					Así que, se trata de un formato de imagen que se centra en la compresión sin pérdida.
+					El problema que tiene es que Chrome sí lo soporta nativamente, pero otros navegadores
+					están trabajando para implementarlo también.
+		        </p>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col">
+		    <div class="card2">
+		      <div class="card-body">
+		        <h5 class="card-title">PNG</h5>
+		        <p class="card-text">
+		        	PNG se basa en un algoritmo que permite comprimir un mapa de bits sin pérdidas.
+		        	Esto quiere decir que muestra la misma cantidad de información que el bitmap, pero ocupando menos espacio.
+					Presentado en 1996, el formato PNG se estructura a partir de diversos segmentos, cada uno dedicado a
+					almacenar determinada información de la imagen en cuestión. Estos segmentos o secciones son “leídos” por un
+					decodificador que posibilita la renderización (la producción, a partir de los datos digitales, de una
+					imagen que es visible y que resulta inteligible para las personas).
+		        </p>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col">
+		    <div class="card2">
+		      <div class="card-body">
+		        <h5 class="card-title">JPG</h5>
+		        <p class="card-text">
+		        	jpg son las siglas de Joint Photographic Experts Group, el nombre del grupo que creó este formato.
+		        	jpg es un formato de compresión de imágenes, tanto en color como en escala de grises, con alta calidad (a todo color).
+		        	Se considera que el formato jpg es mejor para fotografía digital mientras que los formatos .gif y .png son mejor para imágenes gráficas.
+					La mayoría de los exploradores actuales soportan este formato.
+		        </p>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col">
+		    <div class="card2">
+		      <div class="card-body">
+		        <h5 class="card-title">GIF</h5>
+		        <p class="card-text">
+					Los GIFs consisten en una serie de fotogramas que se suceden entre sí, creando una
+					animación sin sonido que se repite en forma de bucle entre 5 y 10 segundos
+					(con excepciones, claro). Estos cuentan con un máximo de 256 colores, por lo que son
+					más livianos que los videos pero más dinámicos que las imágenes convencionales, tomando lo mejor de ambos formatos.
+					La palabra GIF es una sigla que significa Graphics Interchange Format, o en español, Formato de Intercambio de Gráficos.
+					Este formato de imagen fue creado en 1987 por Steve Wilhite en Compuserve, una compañía de comunicaciones norteamericana.
+		        </p>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col">
+		    <div class="card2">
+		      <div class="card-body">
+		        <h5 class="card-title">DNG</h5>
+		        <p class="card-text">
+					El DNG o negativo digital es un formato de fichero RAW al que podemos convertir nuestras imágenes,
+					en este post vamos a ver las características del mismo y las ventajas e inconvenientes que nos aporta.
+					La idea de Adobe al lanzar el formato DNG en 2004 era que se convirtiera en un formato RAW estándar
+					utilizado por fabricantes de cámaras y desarrolladores de software. La principal característica es
+					que es un formato abierto y totalmente documentado a diferencia de los formatos propietarios de las marcas (CR2, NEF, ORF).
+		        </p>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col">
+		    <div class="card2">
+		      <div class="card-body">
+		        <h5 class="card-title">JPEG</h5>
+		        <p class="card-text">
+					JPEG es la sigla correspondiente a Joint Photographic Experts Group, un comité de especialistas
+					que ideó un estándar de codificación y compresión de imágenes digitales. JPEG también es la
+					denominación del formato que identifica a este tipo de documentos y la extensión de los archivos en cuestión.
+					El formato JPEG permite definir el grado de compresión. A mayor grado de compresión, mayor pérdida de calidad
+					y menor tamaño del archivo. Por eso, si la imagen se comprime poco, la pérdida de calidad será acotada,
+					aunque el tamaño del archivo seguirá resultando grande.
+		        </p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+    </form>
+</section>
+{% endblock %}

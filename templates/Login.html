@@ -2,11 +2,11 @@
 
 
 {% block cuerpo %}
+<main class="container my-5">
     <section class="row justify-content-center m-4">
         <article class="col-lg-6 col-12">
 
-            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                <div class="card-header" style="text-align:center;">Movilízate</div>
+            <div class="card mx-auto" style="max-width: 20rem;">
                 <div class="card-body">
                     <h4 class="card-title" style="text-align:center;">Iniciar Sesión</h4>
                     <form action="/Login" method="post">
@@ -23,7 +23,7 @@
                             </div>
 
                             <div class="form-group p-2">
-                                <button class="btn btn-warning mt-4" type="submit">Iniciar</button>
+                                <button class="btn btn-primary mx-auto" type="submit">Iniciar</button>
                             </div>
 
                         </fieldset>
@@ -32,5 +32,5 @@
             </div>
         </article>
     </section>
-
+</main>
 {% endblock %}

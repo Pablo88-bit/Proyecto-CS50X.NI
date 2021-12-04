@@ -2,5 +2,63 @@
 
 
 {% block cuerpo %}
-<h1>¡Saludos! Bienvenido a Movilízate</h1>
+<section class="container mx-auto mt-5">
+    <form>
+        <div class="mb-3 py-3">
+            <label for="formFileSm" class="form-label">Small file input example</label>
+            <input class="form-control form-control-sm" id="formFileSm" type="file">
+        </div>
+        <div class="mb-3 py-3">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">JPG</option>
+                <option value="2">PNG</option>
+                <option value="3">ICO</option>
+                <option value="3">WEBP</option>
+            </select>
+        </div>
+        <div class="mb-3 py-3">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">JPG</option>
+                <option value="2">PNG</option>
+                <option value="3">ICO</option>
+                <option value="3">WEBP</option>
+            </select>
+        </div>
+    </form>
+</section>
+
+<section>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-center ">
+                <h5 class="card-title me-auto">WEBP</h5>
+                <a href="#" class="link-primary ms-auto">Go somewhere</a>
+            </div>
+            <p class="card-text ">Es un formato gráfico en forma de contenedor que surge en el año 2010 de la mano de Google
+                y que soporta tanto la compresión con pérdida como sin ella. Un formato derivado del estándar de vídeo VP8
+                desarrollado por On2 Technologies y que Google adquirió ese mismo año.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-center ">
+                <h5 class="card-title me-auto">PNG</h5>
+                <a href="#" class="link-primary ms-auto">Go somewhere</a>
+            </div>
+            <p class="card-text">Los archivos PNG, también conocidos como ping, almacenan imágenes de mapa de bits.
+            Este formato fue creado para sustituir El tipo de archivo GIF, ya que tiene la capacidad de mostrar fondos transparentes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<script src="/static/js/scripts.js"></script>
 {% endblock %}

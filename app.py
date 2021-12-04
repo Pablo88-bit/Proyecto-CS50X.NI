@@ -34,15 +34,15 @@ Session(app)
 def index():
     return render_template("index.html")
 
-#Ruta Nosotros#
-@app.route('/Nosotros')
-def Nosotros():
-    return render_template("Nosotros.html")
+#Ruta Info#
+@app.route('/Info')
+def Info():
+    return render_template("Info.html")
 
-#Ruta Contacto#
-@app.route('/Contacto')
-def Contacto():
-    return render_template("Contacto.html")
+#Ruta Guía#
+@app.route('/Guia')
+def Guia():
+    return render_template("Guia.html")
 
 #Ruta register#
 @app.route('/register', methods=["GET", "POST"])

@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <title>Converter</title>
 
-    <meta name="Description" content="Un joven emprendedor que desde ya esta poniendo en práctica las habilidades que eh aprendido
-	tanto como en la universidad y de manera autodidacta, tratando de impulsar desde ya mi propia empresa, con el objetivo
-	de primeramente ayudar a todas aquellas personas que soliciten mis servicios."/>
+    <meta name="Description" content="Una plataforma web que le permite a las personas convertir imagenes de un formato a otro,
+    resaltando las principales ventajas de cada uno de los formatos, que dependiendo de su uso, algunos son indicados para ciertas
+    ocasiones y otros no."/>
 
 
 	<!--Este link es de la pagina https://getbootstrap.com/ que me ayudara con el diseño de mi html utilizo el enlace de la nube: jsDelivr-->
@@ -18,9 +18,6 @@
     <!--Este es el link de mis css y js-->
     <link rel= "stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
 
-    <!--Este link es para mostar nuestro reloj-->
-    <!--link href = "https://fonts.googleapis.com/css2?family=Oswald:400;300,700" rel="stylesheet" type="text/css"-->
-    <link href="https://fonts.google.com/share?selection.family=Oswald:wght@300;400;500" rel="stylesheet">
     {%  block head  %}{% endblock  %}
 </head>
     <body>
@@ -29,29 +26,33 @@
         <nav class="navbar navbar-expand-lg navegacion">
             <br /><br />
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">Convierte</a>
+                {% if session.user_id %}
+                <a class="navbar-brand convierte" href="/"><b>Convierte</b></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                {% endif %}
                 <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarColor03">
 
                     <ul class="navbar-nav ">
+                    {% if session.user_id %}
                         <li class="nav-item">
-                            <a class="nav-link" href="/register">Registrarse</a>
+                            <a class="nav-link" href="/Info"><b>Herramientas</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Login">Iniciar Sesión</a>
+                            <a class="nav-link" href="/Guia"><b>Guía</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Info">Herramientas</a>
+                            <a class="nav-link" href="/Salir"><b>Salir</b></a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register"><b>Registrarse</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Guia">Guía</a>
+                            <a class="nav-link" href="/Login"><b>Iniciar Sesión</b></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/salir">Salir</a>
-                        </li>
+                    {% endif %}
                     </ul>
                 </div>
             </div>

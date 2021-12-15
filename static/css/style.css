@@ -5,7 +5,7 @@
 }
 
 body{
-	background:black;
+	background:#2F4F4F;
 }
 h2{
 	display:inline-block;
@@ -16,28 +16,27 @@ h2{
 
 /*Menu de navegación que esta en html base*/
 .navegacion{
-	color:YELLOW;
-	background: rgba(0, 0, 0, .4);
-	background:#929595;
+	color:WHITE;
+	/*background: rgba(0, 0, 0, .4);*/
+	background:BLACK;
 }
 
 .container-fluid{
 	font-size: 111%;
-	color:yellow;
+	color:WHITE;
 	/*color: #0C0307;*/
 }
 .nav-link,
 .navbar-brand{
-	color:yellow;
+	color:WHITE;
 	margin:10px;
 }
 .nav-link:hover{
 
 	color:#F1E839;
 	/*color:#EA1737;*/
-	font-size: 117%;
+	font-size: 112%;
 }
-
 
 
 /*Mensajes al usuario*/
@@ -48,18 +47,45 @@ h2{
 
 
 /*Ruta Index*/
-.card{
+
+.bienvenida{
+	text-shadow: 2px 2px black;
+	color:LIGHTSKYBLUE;
+	font-size:500%;
+	animation-duration: 6.5s;
+	animation-name: slidein;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes slidein{
+	from{
+		margin-left:100%;
+		width:300%;
+	}
+
+	to{
+		margin-left:0%;
+		width:100%;
+	}
+}
+
+
+.card2{
 	color:WHITE;
 	width:100%;
 	height:100%;
 	margin-bottom: 5px;
 	background: rgba(0, 0, 0, .4);
-	background:#929595;
+	background:CRIMSON;
 }
 
-.card-title{
+.titulo2{
 	display: inline-block;
 	color:yellow;
+	width:20%;
+	margin:3px;
+	text-align:center;
 }
 
 .link-primary{
@@ -69,13 +95,24 @@ h2{
 
 
 
-/*Ruta Nosotros*/
-.card2{
+/*Ruta Info*/
+.card3{
 	color:WHITE;
 	width:100%;
 	height:100%;
 	margin-bottom: 5px;
-	background: rgba(0, 0, 0, .4);
+	background: SLATEGRAY;
+	FONT-SIZE:98%;
+
+}
+
+.titulo{
+	display:block;
+	background:PERU;
+	width:20%;
+	margin:3px;
+	text-align:center;
+	color:DARKBLUE;
 }
 
 

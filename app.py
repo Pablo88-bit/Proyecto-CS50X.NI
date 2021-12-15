@@ -11,17 +11,23 @@ from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
+from werkzeug.utils import send_from_directory
+from PIL import Image
+from glob import glob
+import os
 from cs50 import SQL
 
 
 app = Flask(__name__)#Creando un objeto de tipo flask llamado app
 db = SQL("sqlite:///BaseDatos.db")#Creando un objeto de tipo SQL llamado db
-
+UPLOAD_FOLDER = "./static/img/"#Creando la ruta donde se guardaran las imagenes en mi servidor
+# ALLOWED_EXTENSIONS = {'.jpg', '.png'}
 #configuraciones Session#
 app.config["SESSION_FILE_DIR"] = mkdtemp()
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 Session(app)
 
 
@@ -130,6 +136,40 @@ def Login():
         return redirect("/")
     else:
         return render_template("Login.html")
+
+
+#Ruta convertir#
+@app.route('/convertir', methods=["GET", "POST"])
+def convertir():
+    if request.method == "POST":
+        if "archivo" not in request.files:
+            return redirect("/convertir")
+
+        archivo = request.files['archivo']
+        nuevo_formato = request.form.get("formato2")
+
+        if archivo.filename == "":
+            return redirect("/convertir")
+
+        if archivo:
+            nombreArchivo = archivo.filename
+            archivo.save(os.path.join(app.config["UPLOAD_FOLDER"], nombreArchivo))
+
+            nueva_extension = nuevo_formato if nuevo_formato != "jpeg" else "jpg"
+            nuevo_nombre = ".".join(nombreArchivo.split(sep=".")[:-1]) + "." + nueva_extension
+            
+            im = Image.open(os.path.join(app.config["UPLOAD_FOLDER"], nombreArchivo)).convert("RGB")
+            im.save(os.path.join(app.config["UPLOAD_FOLDER"], nuevo_nombre), nuevo_formato)
+            return redirect("/descarga/" + nuevo_nombre)
+        else:
+            return redirect("/convertir")
+    else: 
+        return render_template("convertir.html")
+
+@app.route("/descarga/<path:filename>", methods=['GET', 'POST'])
+def descarga(filename):
+    descarga = os.path.join(app.config["UPLOAD_FOLDER"])
+    return send_from_directory(descarga, filename,environ=request.environ, as_attachment=True)
 
 
 #Si esta en el archivo principal vamos a ejecutar nuestra app

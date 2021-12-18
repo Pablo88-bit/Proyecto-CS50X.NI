@@ -16,6 +16,7 @@ from PIL import Image
 from glob import glob
 import os
 from cs50 import SQL
+from helpers import login_required
 
 
 app = Flask(__name__)#Creando un objeto de tipo flask llamado app
@@ -32,30 +33,16 @@ Session(app)
 
 
 #Decoradores#
-
-
 #Ruta Index#
-@app.route('/home')
 @app.route('/')
+@login_required
 def index():
     return render_template("index.html")
 
-
-#Ruta Salir#
-@app.route('/Salir')
-def Salir():
-    session.clear()
-    return redirect("/register")
-
-#Ruta Info#
-@app.route('/Info')
-def Info():
-    return render_template("Info.html")
-
-#Ruta Guía#
-@app.route('/Guia')
-def Guia():
-    return render_template("Guia.html")
+@app.route('/info')
+@login_required
+def info():
+    return render_template("info.html")
 
 #Ruta register#
 @app.route('/register', methods=["GET", "POST"])
@@ -103,8 +90,8 @@ def register():
 
 
 #Ruta Login#
-@app.route('/Login', methods=["GET", "POST"])
-def Login():
+@app.route('/login', methods=["GET", "POST"])
+def login():
 
     if request.method == "POST":
 
@@ -137,9 +124,16 @@ def Login():
     else:
         return render_template("Login.html")
 
+#Ruta Salir#
+@app.route('/salir')
+@login_required
+def salir():
+    session.clear()
+    return redirect("/login")
 
 #Ruta convertir#
 @app.route('/convertir', methods=["GET", "POST"])
+@login_required
 def convertir():
     if request.method == "POST":
         if "archivo" not in request.files:
@@ -166,7 +160,17 @@ def convertir():
     else: 
         return render_template("convertir.html")
 
+@app.route("/upload", methods=['POST'])
+@login_required
+def upload():
+    archivo = request.files['archivo']
+    nombreArchivo = archivo.filename
+    archivo.save(os.path.join(app.config["UPLOAD_FOLDER"], nombreArchivo))
+    return "success"
+    
+
 @app.route("/descarga/<path:filename>", methods=['GET', 'POST'])
+@login_required
 def descarga(filename):
     descarga = os.path.join(app.config["UPLOAD_FOLDER"])
     return send_from_directory(descarga, filename,environ=request.environ, as_attachment=True)
@@ -174,7 +178,7 @@ def descarga(filename):
 
 #Si esta en el archivo principal vamos a ejecutar nuestra app
 if __name__ == '__main__':
-    app.run(debug = true, port = 5000)#Activamos el modo de depuración y el puerto donde deseo que se ejecute
+    app.run(debug=True, port = 5000)#Activamos el modo de depuración y el puerto donde deseo que se ejecute
     #El modo de depuración ayuda a que cualquier cambio que se haga se vea reflejado en la página
 
 ##Luego de terminar todo debo intaciar mi aplicacion FLASK: export FLASK_APP=app.py \nflask run

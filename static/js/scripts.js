@@ -1,64 +1,97 @@
-(function(){
+const dropArea = document.querySelector(".drag-area");
+const dropText = dropArea.querySelector("h2");
+const button = dropArea.querySelector("button");
+const input = dropArea.querySelector("#input-file");
 
-    var ActualizarHora = function(){
-        var fecha = new Date(),
-            dia = fecha.getDate(),
-            mes = fecha.getMonth(),
-            year = fecha.getFullYear(),
-            ampm,
-            horas = fecha.getHours(),
-            minutos = fecha.getMinutes(),
-            segundos = fecha.getSeconds(),
-            DiaSemana = fecha.getDay();
+let files;
 
+button.addEventListener('click', e => {
+    input.click();
 
-            var pDia = document.getElementById('dia'),
-                pMes = document.getElementById('mes'),
-                pYear = document.getElementById('year'),
-                pAmpm = document.getElementById('ampm'),
-                pHoras = document.getElementById('horas'),
-                pMinutos = document.getElementById('minutos'),
-                pSegundos = document.getElementById('segundos'),
-                pDiaSemana = document.getElementById('diasemana');
+});
 
+input.addEventListener('change', (e) => {
+  files = this.files;
+  dropArea.classList.add("active");
+  showFiles(files);
+  dropArea.classList.remove("active");
+});
 
-            /*Fecha*/
-            var Semana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-            pDiaSemana.textContent = Semana[DiaSemana];
+dropArea.addEventListener("dragover", e => {
+    e.preventDefault();
+    dropArea.classList.add("active");
+    dragText.textContent = "Arrastra y suelta imagen";
+});
 
-            PDia.textContent = dia;
+dropArea.addEventListener("dragleave", e => {
+    e.preventDefault();
+    dropArea.classList.remove("active");
+    dragText.textContent = "Suelta para subir archivos"
+});
 
-            var Meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-            pMes.textContent = Meses[mes];
+dropArea.addEventListener("drop", e => {
+    e.preventDefault();
+    file = e.dataTransfer.files;
+    showFiles(file);
+    dropArea.classList.remove("active");
+    dragText.textContent = "Suelta para subir archivos"
+});
 
-            pYear.textContet = year;
+function showFiles(files){
+    if(files.length == undefined){
+        processFile(files);
+    } else{
+        for (const file of files) {
+            processFile(file);  
+        }
+    }
+}
 
+function processFile(file) {
+    const fileType = file.type;
+    const validExtensions = ['img/jpg', 'img/png', 'img/ico', 'img/webp'];
 
-            /*Hora*/
-            if(horas >= 12){
-                horas = horas - 12;
-                ampm = 'PM';
-            }else
-            {
-                ampm = 'AM';
-            }
+    if(validExtensions.includes(fileType)){
+        const fileReader = new FileReader();
+        const id = `file-${Math.random().toString(32).substring(7)}`;
 
-            if(horas == 0){
-                horas = 12;
-            }
+        fileReader.addEventListener('load', e => {
+            const fileurl = fileReader.result;
+            const image = `
+            <div id="${id}" class="file-container>
+                <img src="${fileurl}" alt="${file.name}" width="50px">
+                <div class"status">
+                    <span>${file.name}</span>
+                    <span class="status-text">Loading...</span>
+                </div>
+            </div>
+            `;
+            const html = document.querySelector('#preview').innerHTML;
 
-            if(minutos < 10){ minutos = "0" + minutos }
-            if(segundos < 10){ segundos = "0" + segundos }
+            document.querySelector('#preview').innerHTML = image + html;
+        });
 
-            pHoras.textContent = horas;
-            pMinutos.textContent = minutos;
-            pSegundos.textContent = segundos;
-            pAmpm.textContent = ampm;
+        fileReader.readAsDataURL(file);
+        uploadFile(file, id);
+    }else{
+        alert("No es un archivo valido");
+    }
+}
 
-    };
+function uploadFile(file){
+    const formData = new FormData();
+    formData.append("file", file);
 
-    /*Para que se ejecute la función cada segundos*/
-    ActualizarHora()
-    var intervalo = setInterval(ActualizarHora, 1000);
+    try {
+        const response = fetch('http://localhost:5000/upload', {
+            method: "POST",
+            body:formData,
+        }); 
 
-}())
+        const responseText =  response.text();
+
+        document.querySelector(`#${id} .status-text`).innerHTML = `<span class="success">Archivo subido correctamente...</span>`;
+    } catch (error) {
+        document.querySelector(`#${id} .status-text`).innerHTML = `<span class="failure">El archivo no pudo subirse...</span>`;
+    }
+}

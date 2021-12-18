@@ -1,31 +1,23 @@
 {% extends './base.html' %}
 
 {% block cuerpo %}
-<section class="container mx-auto mt-5">
+<section class="container justify-content-center mx-auto mt-5">
     <form action="/convertir" method="post" enctype="multipart/form-data">
-        <div class="mb-3 py-3">
-            <b><label for="formFileSm" class="form-label" style="color: WHITE">Ejemplo de entrada archivo pequeño</label></b>
-            <input class="form-control form-control-sm" id="formFileSm" type="file">
+        <div>
+            <div>
+                <input class="form-control form-control-lg" id="formFileLg" type="file" name="archivo">
+              </div>
+            <div id="preview"></div>
+        
+        <select class="form-select" aria-label="Default select example" name="formato2">
+            <option selected>Convertir a</option>
+            <option value="jpeg">JPG</option>
+            <option value="png">PNG</option>
+            <option value="webp">WEPB</option>
+            <option value="ico">ICO</option>
+          </select>
+        <button type="submit" class="btn-1">Convertir</button><br>
         </div>
-        <div class="mb-3 py-3">
-            <select class="form-select" aria-label="Default select example" name="formato1">
-                <option selected diseabled>Elegir formato</option>
-                <option value="jpg">JPG</option>
-                <option value="png">PNG</option>
-                <option value="ico">ICO</option>
-                <option value="webp">WEBP</option>
-            </select>
-        </div>
-        <div class="mb-3 py-3">
-            <select class="form-select" aria-label="Default select example" name="formato2">
-                <option selected diseabled>Elegir formato</option>
-                <option value="jpg">JPG</option>
-                <option value="png">PNG</option>
-                <option value="ico">ICO</option>
-                <option value="webp">WEBP</option>
-            </select>
-        </div>
-        <button type="submit">Convertir</button><br>
     </form>
 </section>
 

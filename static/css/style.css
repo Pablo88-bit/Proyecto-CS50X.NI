@@ -1,18 +1,83 @@
  /*Para inicializar todo el documento sin ningún margen y padding*/
 *{
-	margin:0px;
-	padding:0px;
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
 }
 
-body{
-	background:#2F4F4F;
-}
-h2{
-	display:inline-block;
-  	background-color:  #F9F611;
-	color: #EA1737;
+
+.drag-area{
+	border: 5px dashed #ddd;
+	height: 500px;
+	width: 700px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	min-height: 50vh;
 }
 
+.drag-area.active{
+	background-color: #b8d4fe;
+	color:black;
+	border: 2px dashed #618ac9;
+
+}
+
+.drag-area h2{
+	font-size: 30px;
+	color: white;
+	font-weight: 500;
+}
+
+.drag-area span{
+	font-size: 25px;
+	font-weight: 500;
+	color: #fff;
+}
+.drag-area button{
+	padding: 10px 25px;
+	font-size: 20px;
+	border: 0;
+	outline: none;
+	background-color: #5256ad;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 20px;
+}
+
+.btn-1{
+	padding: 10px 25px;
+	font-size: 20px;
+	border: 0;
+	outline: none;
+	background-color: #5256ad;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 20px;
+}
+
+.file-container{
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 10px;
+	border: solid 1px #ddd;
+}
+
+#preview{
+	margin-top: 10px;
+}
+.status-text{
+	padding: 0 10px;
+}
+.success{
+	color: #52ad5a;
+}
+.failure{
+	color: #ff0000;
+}
 
 /*Menu de navegación que esta en html base*/
 .navegacion{
